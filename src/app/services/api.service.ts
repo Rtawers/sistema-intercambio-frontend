@@ -23,7 +23,7 @@ export interface StatusApiResponse {
 })
 export class ApiService {
   // Dirección de tu backend Express.js
-  private backendUrl = 'http://localhost:3000';
+  private backendUrl = ' https://pmid-omaha-manual-objective.trycloudflare.com  ';
 
   constructor(private http: HttpClient) { }
 
