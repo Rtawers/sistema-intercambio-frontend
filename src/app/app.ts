@@ -36,6 +36,6 @@ export class AppComponent {
   constructor(private readonly keycloakService: KeycloakService) {}
 
   public logout() {
-    this.keycloakService.logout('http://localhost:4200');
+    this.keycloakService.logout('https://bright-dango-229dba.netlify.app');
   }
 }
