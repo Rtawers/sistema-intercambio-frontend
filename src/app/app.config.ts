@@ -15,7 +15,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'https://dull-radios-stare.loca.lt',
+        url: 'http://localhost:8080',
         realm: 'intercambio-estudiantil',
         clientId: 'angular-app',
       },
