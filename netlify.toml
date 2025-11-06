@@ -7,6 +7,7 @@
   # La carpeta que Netlify publicará. ¡Verifica esta ruta!
   # Ejecuta "ng build" en tu PC y mira cómo se llama la carpeta final.
   publish = "dist/sistema-intercambio-frontend/browser/"
+  
 # La regla de redirección que solucionará el error 404.
 [[redirects]]
   from = "/*"

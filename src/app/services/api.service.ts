@@ -23,7 +23,7 @@ export interface StatusApiResponse {
 })
 export class ApiService {
   // Dirección de tu backend Express.js
-  private backendUrl = 'http://localhost:3000';
+  private backendUrl = 'https://plain-taxes-invent.loca.lt';
 
   constructor(private http: HttpClient) { }
 
