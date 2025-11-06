@@ -1,0 +1,132 @@
+// src/app/app.scss (VERSIÓN ELEGANTE Y REFINADA)
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+/* ====== VARIABLES GLOBALES ====== */
+:root {
+  --container-padding: 32px;
+  --card-border-radius: 16px;
+  --card-gap: 24px;
+}
+
+/* ====== ESTILOS BASE ====== */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f4f6f8; // Un gris de fondo más profesional
+}
+
+/* ====== LAYOUT PRINCIPAL (Sidenav) ====== */
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  border-right: none !important; // Quita el borde por defecto para usar sombra
+  box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+}
+
+.sidenav-title {
+  padding: 24px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: rgba(0,0,0,0.7);
+}
+
+.mat-nav-list a.mat-list-item {
+  margin: 4px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  color: rgba(0,0,0,0.75);
+
+  .mat-icon {
+    color: rgba(0,0,0,0.5);
+  }
+}
+
+.mat-nav-list .active-link {
+  background-color: mat.get-color-from-palette(mat.$blue-palette, 50, 0.6); // Un azul muy claro
+  color: mat.get-color-from-palette(mat.$blue-palette, 700) !important;
+
+  .mat-icon {
+    color: mat.get-color-from-palette(mat.$blue-palette, 600);
+  }
+}
+
+/* ====== TOOLBAR SUPERIOR ====== */
+mat-toolbar {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* ====== CONTENEDOR DE CONTENIDO (donde va el router-outlet) ====== */
+.container {
+  padding: var(--container-padding);
+}
+
+/* ====== ESTILOS COMUNES (que heredarán los componentes) ====== */
+// Usamos selectores CSS para apuntar a las tarjetas DENTRO del dashboard
+app-dashboard, app-my-documents, app-help {
+  display: block; // Importante para que el layout funcione
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); // Columnas responsivas
+    gap: var(--card-gap);
+  }
+
+  mat-card {
+    border-radius: var(--card-border-radius) !important;
+    box-shadow: none; // Sombras más sutiles en las tarjetas
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease;
+    background-color: #fff;
+
+    &:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+  }
+
+  .info-card {
+    grid-column: 1 / -1; // Haz que esta tarjeta ocupe todo el ancho
+  }
+}
+
+// Estilos específicos para el formulario (pueden ir en su propio .scss o aquí)
+.file-input-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  
+  &:last-of-type {
+    border-bottom: none;
+  }
+  
+  p {
+    flex-grow: 1;
+    margin: 0;
+  }
+}
+
+.stepper-buttons {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ====== AJUSTES RESPONSIVOS ====== */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; // Una sola columna en pantallas pequeñas
+  }
+}

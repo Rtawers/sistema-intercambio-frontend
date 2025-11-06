@@ -1,0 +1,114 @@
+// src/app/app.scss
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* ====== CONTENEDORES PRINCIPALES ====== */
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidenav-title {
+  padding: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mat-nav-list .active-link {
+  background-color: rgba(25, 118, 210, 0.1);
+  border-radius: 12px;
+}
+
+.mat-nav-list a.mat-list-item {
+  border-radius: 12px;
+  margin: 4px 8px;
+}
+
+/* ====== TOOLBAR SUPERIOR ====== */
+mat-toolbar {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* ====== CONTENIDO ====== */
+.container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ====== TARJETAS ====== */
+mat-card {
+  border-radius: 16px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+}
+
+mat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* ====== MENSAJES DE RETROALIMENTACIÓN ====== */
+.feedback-message {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* ====== EFECTOS RESPONSIVOS ====== */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 200px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  mat-card {
+    border-radius: 12px;
+  }
+
+  .file-input-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

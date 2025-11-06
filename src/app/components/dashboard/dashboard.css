@@ -1,0 +1,45 @@
+.info-card {
+  margin-bottom: 24px;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.content-card {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* ====== STEPPER ====== */
+.file-input-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.file-name {
+  font-style: italic;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stepper-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.upload-progress {
+  margin-top: 16px;
+}
+
+.submit-button {
+  margin-top: 16px;
+}

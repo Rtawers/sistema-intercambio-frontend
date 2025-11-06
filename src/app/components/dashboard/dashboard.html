@@ -1,0 +1,90 @@
+<!-- src/app/components/dashboard/dashboard.html (VERSIÓN CON GRID LAYOUT) -->
+
+<!-- Envolvemos todo en el contenedor grid -->
+<div class="dashboard-grid">
+
+  <!-- =============================== -->
+  <!-- Tarjeta de Bienvenida (ocupa todo el ancho) -->
+  <!-- =============================== -->
+  <mat-card class="info-card">
+    <mat-card-header>
+      <mat-card-title>¡Bienvenido, {{ userProfile?.firstName }} {{ userProfile?.lastName }}!</mat-card-title>
+      <mat-card-subtitle>Información del Perfil del Postulante</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Nombre de usuario:</strong> {{ userProfile?.username }}</p>
+      <p><strong>Email:</strong> {{ userProfile?.email }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- =============================== -->
+  <!-- Tarjeta del Formulario con MatStepper (ocupa una columna) -->
+  <!-- =============================== -->
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Formulario de Entrega de Documentos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-stepper orientation="vertical" [linear]="true" #stepper>
+        <mat-step [stepControl]="uploadForm">
+          <form [formGroup]="uploadForm">
+            <ng-template matStepLabel>Sube tus documentos requeridos</ng-template>
+            
+            <!-- Documento de Identidad -->
+            <div class="file-input-row">
+              <p>1. Documento de Identidad</p>
+              <button type="button" mat-stroked-button color="accent" (click)="docIdInput.click()"><mat-icon>attach_file</mat-icon> Seleccionar...</button>
+              <span class="file-name">{{ uploadForm.get('documentoIdentidad')?.value?.name || '' }}</span>
+              <input hidden type="file" #docIdInput (change)="onFileSelect($event, 'documentoIdentidad')">
+            </div>
+
+            <!-- Formato de Materias -->
+            <div class="file-input-row">
+              <p>2. Formato de Materias</p>
+              <button type="button" mat-stroked-button color="accent" (click)="materiasInput.click()"><mat-icon>attach_file</mat-icon> Seleccionar...</button>
+              <span class="file-name">{{ uploadForm.get('formatoMaterias')?.value?.name || '' }}</span>
+              <input hidden type="file" #materiasInput (change)="onFileSelect($event, 'formatoMaterias')">
+            </div>
+
+            <!-- Seguro Médico -->
+            <div class="file-input-row">
+              <p>3. Seguro Médico</p>
+              <button type="button" mat-stroked-button color="accent" (click)="seguroInput.click()"><mat-icon>attach_file</mat-icon> Seleccionar...</button>
+              <span class="file-name">{{ uploadForm.get('seguro')?.value?.name || '' }}</span>
+              <input hidden type="file" #seguroInput (change)="onFileSelect($event, 'seguro')">
+            </div>
+
+            <!-- Carta de Aceptación -->
+            <div class="file-input-row">
+              <p>4. Carta de Aceptación</p>
+              <button type="button" mat-stroked-button color="accent" (click)="cartaAceptacionInput.click()"><mat-icon>attach_file</mat-icon> Seleccionar...</button>
+              <span class="file-name">{{ uploadForm.get('cartaAceptacion')?.value?.name || '' }}</span>
+              <input hidden type="file" #cartaAceptacionInput (change)="onFileSelect($event, 'cartaAceptacion')">
+            </div>
+
+            <!-- Carta de Recomendación -->
+            <div class="file-input-row">
+              <p>5. Carta de Recomendación</p>
+              <button type="button" mat-stroked-button color="accent" (click)="cartaRecomendacionInput.click()"><mat-icon>attach_file</mat-icon> Seleccionar...</button>
+              <span class="file-name">{{ uploadForm.get('cartaRecomendacion')?.value?.name || '' }}</span>
+              <input hidden type="file" #cartaRecomendacionInput (change)="onFileSelect($event, 'cartaRecomendacion')">
+            </div>
+
+            <div class="stepper-buttons">
+              <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!uploadForm.valid || isUploading">
+                {{ isUploading ? 'Subiendo...' : 'Finalizar y Enviar' }}
+              </button>
+            </div>
+            <mat-progress-bar mode="indeterminate" *ngIf="isUploading" class="upload-progress"></mat-progress-bar>
+          </form>
+        </mat-step>
+      </mat-stepper>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- =============================== -->
+  <!-- Aquí iría la tarjeta de "Documentos Entregados" si quisieras mostrarla en el mismo dashboard -->
+  <!-- Por ahora, la mantenemos en su propia ruta /documents para un diseño más limpio -->
+  <!-- =============================== -->
+
+</div>
