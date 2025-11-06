@@ -23,7 +23,7 @@ export interface StatusApiResponse {
 })
 export class ApiService {
   // Dirección de tu backend Express.js
-  private backendUrl = 'http://localhost:3000';
+  private backendUrl = ' https://chairman-interactions-flexible-corps.trycloudflare.com  ';
 
   constructor(private http: HttpClient) { }
 
