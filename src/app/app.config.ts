@@ -15,7 +15,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'https://vacuum-jon-cincinnati-ricky.trycloudflare.com',
+        url: 'https://turtle-boundary-professional-cache.trycloudflare.com',
         realm: 'intercambio-estudiantil',
         clientId: 'angular-app',
       },
