@@ -15,7 +15,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8080',
+        url: ' https://bab667a00aac.ngrok-free.app',
         realm: 'intercambio-estudiantil',
         clientId: 'angular-app',
       },
