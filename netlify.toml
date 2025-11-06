@@ -1,0 +1,14 @@
+# netlify.toml - Configuración a prueba de fallos para Angular en Netlify
+
+[build]
+  # El comando que Netlify debe ejecutar para construir tu app.
+  command = "ng build"
+  
+  # La carpeta que Netlify publicará. ¡Verifica esta ruta!
+  # Ejecuta "ng build" en tu PC y mira cómo se llama la carpeta final.
+  publish = "dist/sistema-intercambio-frontend/browser/"
+# La regla de redirección que solucionará el error 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
